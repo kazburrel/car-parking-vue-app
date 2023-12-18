@@ -1,3 +1,2 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* FILEPATH: /Users/mac/car-parking-vue-frontend/src/assets/main.css */
+@import url('bootstrap/dist/css/bootstrap.min.css');
