@@ -1,9 +1,12 @@
+/* eslint-env node */
 /** @type {import('tailwindcss').Config} */
-export default {
-  content: [],
+ 
+const colors = require("tailwindcss/colors");
+ 
+module.exports = {
+  content: ["./src/**/*.{vue,js}"],
   theme: {
-    extend: {},
+    extend: { colors },
   },
   plugins: [],
-}
-
+};
