@@ -1,31 +1,45 @@
+<script setup>
+import { onBeforeUnmount } from "vue";
+import { useRegister } from "@/stores/register";
+ 
+const store = useRegister();
+ 
+onBeforeUnmount(store.resetForm);
+</script>
+
 <template>
     <div class="container h-100">
         <div class="row h-100 justify-content-center align-items-center">
             <div class="col-md-6 p-5">
-                <form @submit.prevent="() => { }" novalidate>
+                <form @submit.prevent="store.handleSubmit" novalidate>
                     <div class="row h-100 justify-content-center align-items-center">
                         <div class="mb-3">
                             <label class="form-label">Name</label>
-                            <input type="text" class="form-control" aria-describedby="emailHelp">
+                            <input type="text" v-model="store.form.name" id="name" name="name" class="form-control"
+                                autocomplete="name" required aria-describedby="emailHelp">
+                            <ValidationError :errors="store.errors" field="name" />
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" v-model="store.form.email" id="email" name="email" class="form-control"
+                                autocomplete="email" required aria-describedby="emailHelp">
+                            <ValidationError :errors="store.errors" field="email" />
                             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" name="password" v-model="store.form.password" id="password"
+                                class="form-control" required>
+                            <ValidationError :errors="store.errors" field="password" />
                         </div>
-                         <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1">
+                        <div class="mb-3">
+                            <label for="password_confirmation" class="form-label">Confirm Password</label>
+                            <input type="password" id="password_confirmation" v-model="store.form.password_confirmation" name="password_confirmation"
+                                class="form-control" required>
+                            <!-- <ValidationError :errors="store.errors" field="password_confirmation" /> -->
                         </div>
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+
+                        <button type="submit" class="btn btn-primary">Register</button>
                     </div>
                 </form>
 
