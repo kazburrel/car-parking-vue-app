@@ -43,5 +43,5 @@ export const useRegister = defineStore('register', () => {
       })
   }
 
-  return { form, errors, resetForm, handleSubmit }
+  return { form, errors, loading, resetForm, handleSubmit }
 })
