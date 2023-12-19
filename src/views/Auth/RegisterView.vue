@@ -36,11 +36,11 @@ onBeforeUnmount(store.resetForm);
                             <label for="password_confirmation" class="form-label">Confirm Password</label>
                             <input type="password" id="password_confirmation" v-model="store.form.password_confirmation"
                                 name="password_confirmation" class="form-control" required :disabled="store.loading">
-                            <!-- <ValidationError :errors="store.errors" field="password_confirmation" /> -->
                         </div>
 
                         <button type="submit" class="btn btn-primary">
                             <IconSpinner v-show="store.loading" />
+                            
                             Register
                         </button>
                     </div>
