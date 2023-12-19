@@ -30,6 +30,7 @@ export const useRegister = defineStore('register', () => {
       .post('auth/register', form)
       .then((response) => {
         console.log(response.data)
+        resetForm();
       })
       .catch((error) => {
         if (error.response.status === 422) {

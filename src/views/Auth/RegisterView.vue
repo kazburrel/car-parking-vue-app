@@ -1,10 +1,10 @@
 <script setup>
-import { onBeforeUnmount } from "vue";
+// import { onBeforeUnmount } from "vue";
 import { useRegister } from "@/stores/register";
 
 const store = useRegister();
 
-onBeforeUnmount(store.resetForm);
+// onBeforeUnmount(store.resetForm);
 </script>
 
 <template>
@@ -15,14 +15,14 @@ onBeforeUnmount(store.resetForm);
                     <div class="row h-100 justify-content-center align-items-center">
                         <div class="mb-3">
                             <label class="form-label">Name</label>
-                            <input type="text" v-model="store.form.name" id="name" name="name" class="form-control"
-                                autocomplete="name" required aria-describedby="emailHelp" :disabled="store.loading">
+                            <input type="text" v-model="store.form.name" id="name" name="name" class="form-control" required
+                                aria-describedby="emailHelp" :disabled="store.loading">
                             <ValidationError :errors="store.errors" field="name" />
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email address</label>
                             <input type="email" v-model="store.form.email" id="email" name="email" class="form-control"
-                                autocomplete="email" required aria-describedby="emailHelp" :disabled="store.loading">
+                                required aria-describedby="emailHelp" :disabled="store.loading">
                             <ValidationError :errors="store.errors" field="email" />
                             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                         </div>
@@ -40,7 +40,7 @@ onBeforeUnmount(store.resetForm);
 
                         <button type="submit" class="btn btn-primary">
                             <IconSpinner v-show="store.loading" />
-                            
+
                             Register
                         </button>
                     </div>
