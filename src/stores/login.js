@@ -30,7 +30,7 @@ export const useLogin = defineStore('login', () => {
       .post('auth/login', form)
       .then((response) => {
         auth.login(response.data.access_token)
-        
+        resetForm()
       })
       .catch((error) => {
         if (error.response.status === 422) {
