@@ -35,6 +35,12 @@ const router = createRouter({
       name: 'vehicles.index',
       beforeEnter: auth,
       component: () => import('@/views/Vehicles/IndexView.vue')
+    },
+    {
+      path: '/login',
+      name: 'login',
+      beforeEnter: guest,
+      component: () => import('@/views/Auth/LoginView.vue')
     }
   ]
 })
