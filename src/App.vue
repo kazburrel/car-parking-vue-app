@@ -33,7 +33,10 @@ const auth = useAuth();
           <button @click="auth.logout" class="router-link btn btn-danger">Logout</button>
         </template>
         <template v-else>
-          <RouterLink class="router-link text-decoration-none text-dark" :to="{ name: 'register' }">
+          <RouterLink class="router-link text-decoration-none text-dark" :to="{ name: 'login' }">
+            Login
+          </RouterLink>
+           <RouterLink class="router-link text-decoration-none text-dark" :to="{ name: 'register' }">
             Register
           </RouterLink>
         </template>
