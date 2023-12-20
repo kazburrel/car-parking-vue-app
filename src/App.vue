@@ -29,17 +29,22 @@ const auth = useAuth();
             </template>
           </li>
         </ul>
+
         <template v-if="auth.check">
           <button @click="auth.logout" class="router-link btn btn-danger">Logout</button>
         </template>
         <template v-else>
-          <RouterLink class="router-link text-decoration-none text-dark" :to="{ name: 'login' }">
-            Login
-          </RouterLink>
-           <RouterLink class="router-link text-decoration-none text-dark" :to="{ name: 'register' }">
-            Register
-          </RouterLink>
+          <div class="d-flex gap-2">
+            <RouterLink class="router-link text-decoration-none text-dark" :to="{ name: 'login' }">
+              Login
+            </RouterLink>
+            <RouterLink class="router-link text-decoration-none text-dark" :to="{ name: 'register' }">
+              Register
+            </RouterLink>
+          </div>
         </template>
+
+
       </div>
     </div>
   </nav>
